@@ -1,27 +1,27 @@
 #include "Service.h"
 
 /**
- * @brief Конструктор класса Service.
+ * @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Service.
  *
- * @param name - Название услуги.
- * @param cost_per_unit - Стоимость за единицу услуги.
+ * @param name - РќР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
+ * @param cost_per_unit - РЎС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ СѓСЃР»СѓРіРё.
  */
 Service::Service(const std::string& name, double cost_per_unit)
     : name(name), cost_per_unit(cost_per_unit) {}
 
 /**
- * @brief Возвращает название услуги.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
  *
- * @return const std::string& - Название услуги.
+ * @return const std::string& - РќР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
  */
 const std::string& Service::getName() const {
     return name;
 }
 
 /**
- * @brief Возвращает стоимость за единицу услуги.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ СѓСЃР»СѓРіРё.
  *
- * @return double - Стоимость за единицу.
+ * @return double - РЎС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ.
  */
 double Service::getCostPerUnit() const {
     return cost_per_unit;
@@ -30,27 +30,27 @@ double Service::getCostPerUnit() const {
 #include "Subscriber.h"
 
 /**
- * @brief Конструктор класса Subscriber.
+ * @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Subscriber.
  *
- * @param name - Имя абонента.
- * @param tariff - Тариф абонента.
+ * @param name - РРјСЏ Р°Р±РѕРЅРµРЅС‚Р°.
+ * @param tariff - РўР°СЂРёС„ Р°Р±РѕРЅРµРЅС‚Р°.
  */
 Subscriber::Subscriber(const std::string& name, const Tariff& tariff)
     : name(name), tariff(tariff) {}
 
 /**
- * @brief Возвращает имя абонента.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ Р°Р±РѕРЅРµРЅС‚Р°.
  *
- * @return const std::string& - Имя абонента.
+ * @return const std::string& - РРјСЏ Р°Р±РѕРЅРµРЅС‚Р°.
  */
 const std::string& Subscriber::getName() const {
     return name;
 }
 
 /**
- * @brief Возвращает тариф абонента.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚Р°СЂРёС„ Р°Р±РѕРЅРµРЅС‚Р°.
  *
- * @return const Tariff& - Тариф абонента.
+ * @return const Tariff& - РўР°СЂРёС„ Р°Р±РѕРЅРµРЅС‚Р°.
  */
 const Tariff& Subscriber::getTariff() const {
     return tariff;
@@ -59,34 +59,34 @@ const Tariff& Subscriber::getTariff() const {
 #include "Tariff.h"
 
 /**
- * @brief Конструктор класса Tariff.
+ * @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Tariff.
  *
- * @param name - Название тарифа.
+ * @param name - РќР°Р·РІР°РЅРёРµ С‚Р°СЂРёС„Р°.
  */
 Tariff::Tariff(const std::string& name) : name(name) {}
 
 /**
- * @brief Добавляет услугу к тарифу.
+ * @brief Р”РѕР±Р°РІР»СЏРµС‚ СѓСЃР»СѓРіСѓ Рє С‚Р°СЂРёС„Сѓ.
  *
- * @param service - Услуга для добавления.
+ * @param service - РЈСЃР»СѓРіР° РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ.
  */
 void Tariff::addService(const Service& service) {
     services.push_back(service);
 }
 
 /**
- * @brief Возвращает название тарифа.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅР°Р·РІР°РЅРёРµ С‚Р°СЂРёС„Р°.
  *
- * @return const std::string& - Название тарифа.
+ * @return const std::string& - РќР°Р·РІР°РЅРёРµ С‚Р°СЂРёС„Р°.
  */
 const std::string& Tariff::getName() const {
     return name;
 }
 
 /**
- * @brief Возвращает список услуг тарифа.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СѓСЃР»СѓРі С‚Р°СЂРёС„Р°.
  *
- * @return const std::vector<Service>& - Список услуг.
+ * @return const std::vector<Service>& - РЎРїРёСЃРѕРє СѓСЃР»СѓРі.
  */
 const std::vector<Service>& Tariff::getServices() const {
     return services;

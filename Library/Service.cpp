@@ -1,24 +1,24 @@
 #include "Service.h"
 
 /**
- * @brief Конструктор класса Service.
- * @param name - название услуги.
- * @param cost_per_unit - стоимость за единицу услуги.
+ * @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Service.
+ * @param name - РЅР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
+ * @param cost_per_unit - СЃС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ СѓСЃР»СѓРіРё.
  */
 Service::Service(const std::string& name, double cost_per_unit)
     : name(name), cost_per_unit(cost_per_unit) {}
 
 /**
- * @brief Возвращает название услуги.
- * @return const std::string& - Название услуги.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
+ * @return const std::string& - РќР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
  */
 const std::string& Service::getName() const {
     return name;
 }
 
 /**
- * @brief Возвращает стоимость за единицу услуги.
- * @return double - Стоимость за единицу.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ СѓСЃР»СѓРіРё.
+ * @return double - РЎС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ.
  */
 double Service::getCostPerUnit() const {
     return cost_per_unit;

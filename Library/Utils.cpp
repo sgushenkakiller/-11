@@ -1,70 +1,70 @@
 #include "Service.h"
 /**
-*@brief Конструктор класса Service.
-*@param name - Название услуги.
-*@param cost_per_unit - Стоимость за единицу услуги.
+*@brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Service.
+*@param name - РќР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
+*@param cost_per_unit - РЎС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ СѓСЃР»СѓРіРё.
 */
 Service::Service(const std::string& name, double cost_per_unit)
     : name(name), cost_per_unit(cost_per_unit) {}
 /**
-*@brief Возвращает название услуги.
-*@return Название услуги.
+*@brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
+*@return РќР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
 */
 const std::string& Service::getName() const {
     return name;
 }
 /**
-*@brief Возвращает стоимость за единицу услуги.
-*@return Стоимость за единицу.
+*@brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ СѓСЃР»СѓРіРё.
+*@return РЎС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ.
 */
 double Service::getCostPerUnit() const {
     return cost_per_unit;
 }
 #include "Subscriber.h"
 /**
-*@brief Конструктор класса Subscriber.
-*@param name - Имя абонента.
-*@param tariff - Тариф абонента.
+*@brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Subscriber.
+*@param name - РРјСЏ Р°Р±РѕРЅРµРЅС‚Р°.
+*@param tariff - РўР°СЂРёС„ Р°Р±РѕРЅРµРЅС‚Р°.
 */
 Subscriber::Subscriber(const std::string& name, const Tariff& tariff)
     : name(name), tariff(tariff) {}
 /**
-*@brief Возвращает имя абонента.
-*@return Имя абонента.
+*@brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ Р°Р±РѕРЅРµРЅС‚Р°.
+*@return РРјСЏ Р°Р±РѕРЅРµРЅС‚Р°.
 */
 const std::string& Subscriber::getName() const {
     return name;
 }
 /**
-*@brief Возвращает тариф абонента.
-*@return Тариф абонента.
+*@brief Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚Р°СЂРёС„ Р°Р±РѕРЅРµРЅС‚Р°.
+*@return РўР°СЂРёС„ Р°Р±РѕРЅРµРЅС‚Р°.
 */
 const Tariff& Subscriber::getTariff() const {
     return tariff;
 }
 #include "Tariff.h"
 /**
-*@brief Конструктор класса Tariff.
-*@param name - Название тарифа.
+*@brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Tariff.
+*@param name - РќР°Р·РІР°РЅРёРµ С‚Р°СЂРёС„Р°.
 */
 Tariff::Tariff(const std::string& name) : name(name) {}
 /**
-*@brief Добавляет услугу к тарифу.
-*@param service - Услуга для добавления.
+*@brief Р”РѕР±Р°РІР»СЏРµС‚ СѓСЃР»СѓРіСѓ Рє С‚Р°СЂРёС„Сѓ.
+*@param service - РЈСЃР»СѓРіР° РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ.
 */
 void Tariff::addService(const Service& service) {
     services.push_back(service);
 }
 /**
-*@brief Возвращает название тарифа.
-*@return Название тарифа.
+*@brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅР°Р·РІР°РЅРёРµ С‚Р°СЂРёС„Р°.
+*@return РќР°Р·РІР°РЅРёРµ С‚Р°СЂРёС„Р°.
 */
 const std::string& Tariff::getName() const {
     return name;
 }
 /**
-*@brief Возвращает список услуг тарифа.
-*@return Список услуг.
+*@brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СѓСЃР»СѓРі С‚Р°СЂРёС„Р°.
+*@return РЎРїРёСЃРѕРє СѓСЃР»СѓРі.
 */
 const std::vector<Service>& Tariff::getServices() const {
     return services;
@@ -74,8 +74,8 @@ const std::vector<Service>& Tariff::getServices() const {
 #include <unordered_map>
 #include <algorithm>
 /**
-*@brief Отображает услуги в тарифе.
-*@param tariff - Тариф, услуги которого нужно показать.
+*@brief РћС‚РѕР±СЂР°Р¶Р°РµС‚ СѓСЃР»СѓРіРё РІ С‚Р°СЂРёС„Рµ.
+*@param tariff - РўР°СЂРёС„, СѓСЃР»СѓРіРё РєРѕС‚РѕСЂРѕРіРѕ РЅСѓР¶РЅРѕ РїРѕРєР°Р·Р°С‚СЊ.
 */
 void showServices(const Tariff& tariff) {
     std::cout << "Services for tariff: " << tariff.getName() << std::endl;
@@ -84,8 +84,8 @@ void showServices(const Tariff& tariff) {
     }
 }
 /**
-*@brief Отображает список тарифов и их услуги.
-*@param tariffs - Список тарифов для отображения.
+*@brief РћС‚РѕР±СЂР°Р¶Р°РµС‚ СЃРїРёСЃРѕРє С‚Р°СЂРёС„РѕРІ Рё РёС… СѓСЃР»СѓРіРё.
+*@param tariffs - РЎРїРёСЃРѕРє С‚Р°СЂРёС„РѕРІ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ.
 */
 void showTariffs(const std::vector<Tariff>& tariffs) {
     std::cout << "Tariffs and their services:" << std::endl;
@@ -97,8 +97,8 @@ void showTariffs(const std::vector<Tariff>& tariffs) {
     }
 }
 /**
-*@brief Отображает список абонентов.
-*@param subscribers - Список абонентов для отображения.
+*@brief РћС‚РѕР±СЂР°Р¶Р°РµС‚ СЃРїРёСЃРѕРє Р°Р±РѕРЅРµРЅС‚РѕРІ.
+*@param subscribers - РЎРїРёСЃРѕРє Р°Р±РѕРЅРµРЅС‚РѕРІ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ.
 */
 void showSubscribers(const std::vector<Subscriber>& subscribers) {
     std::cout << "Subscribers list:" << std::endl;
@@ -107,8 +107,8 @@ void showSubscribers(const std::vector<Subscriber>& subscribers) {
     }
 }
 /**
-*@brief Отображает самые популярные тарифы.
-*@param subscribers - Список абонентов для анализа популярности тарифов.
+*@brief РћС‚РѕР±СЂР°Р¶Р°РµС‚ СЃР°РјС‹Рµ РїРѕРїСѓР»СЏСЂРЅС‹Рµ С‚Р°СЂРёС„С‹.
+*@param subscribers - РЎРїРёСЃРѕРє Р°Р±РѕРЅРµРЅС‚РѕРІ РґР»СЏ Р°РЅР°Р»РёР·Р° РїРѕРїСѓР»СЏСЂРЅРѕСЃС‚Рё С‚Р°СЂРёС„РѕРІ.
 */
 void showMostPopularTariffs(const std::vector<Subscriber>& subscribers) {
     std::unordered_map<std::string, int> tariff_count;
@@ -121,8 +121,8 @@ void showMostPopularTariffs(const std::vector<Subscriber>& subscribers) {
     }
 }
 /**
-*@brief Отображает распределение тарифов среди абонентов.
-*@param subscribers - Список абонентов для анализа распределения тарифов.
+*@brief РћС‚РѕР±СЂР°Р¶Р°РµС‚ СЂР°СЃРїСЂРµРґРµР»РµРЅРёРµ С‚Р°СЂРёС„РѕРІ СЃСЂРµРґРё Р°Р±РѕРЅРµРЅС‚РѕРІ.
+*@param subscribers - РЎРїРёСЃРѕРє Р°Р±РѕРЅРµРЅС‚РѕРІ РґР»СЏ Р°РЅР°Р»РёР·Р° СЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ С‚Р°СЂРёС„РѕРІ.
 */
 void showTariffDistribution(const std::vector<Subscriber>& subscribers) {
     std::unordered_map<std::string, int> tariff_count;

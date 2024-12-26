@@ -1,27 +1,27 @@
 #include "Service.h"
 
 /**
- * @brief Конструктор класса Service.
+ * @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Service.
  *
- * @param name - Название услуги.
- * @param cost_per_unit - Стоимость за единицу услуги.
+ * @param name - РќР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
+ * @param cost_per_unit - РЎС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ СѓСЃР»СѓРіРё.
  */
 Service::Service(const std::string& name, double cost_per_unit)
     : name(name), cost_per_unit(cost_per_unit) {}
 
 /**
- * @brief Возвращает название услуги.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
  *
- * @return const std::string& - Название услуги.
+ * @return const std::string& - РќР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё.
  */
 const std::string& Service::getName() const {
     return name;
 }
 
 /**
- * @brief Возвращает стоимость за единицу услуги.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ СѓСЃР»СѓРіРё.
  *
- * @return double - Стоимость за единицу.
+ * @return double - РЎС‚РѕРёРјРѕСЃС‚СЊ Р·Р° РµРґРёРЅРёС†Сѓ.
  */
 double Service::getCostPerUnit() const {
     return cost_per_unit;
@@ -30,24 +30,24 @@ double Service::getCostPerUnit() const {
 #include "Subscriber.h"
 
 /**
- * @brief Конструктор класса Subscriber.
- * @param name - Имя абонента.
- * @param tariff - Тариф абонента.
+ * @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Subscriber.
+ * @param name - РРјСЏ Р°Р±РѕРЅРµРЅС‚Р°.
+ * @param tariff - РўР°СЂРёС„ Р°Р±РѕРЅРµРЅС‚Р°.
  */
 Subscriber::Subscriber(const std::string& name, const Tariff& tariff)
     : name(name), tariff(tariff) {}
 
 /**
- * @brief Возвращает имя абонента.
- * @return const std::string& - Имя абонента.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ Р°Р±РѕРЅРµРЅС‚Р°.
+ * @return const std::string& - РРјСЏ Р°Р±РѕРЅРµРЅС‚Р°.
  */
 const std::string& Subscriber::getName() const {
     return name;
 }
 
 /**
- * @brief Возвращает тариф абонента.
- * @return const Tariff& - Тариф абонента.
+ * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚Р°СЂРёС„ Р°Р±РѕРЅРµРЅС‚Р°.
+ * @return const Tariff& - РўР°СЂРёС„ Р°Р±РѕРЅРµРЅС‚Р°.
  */
 const Tariff& Subscriber::getTariff() const {
     return tariff;
