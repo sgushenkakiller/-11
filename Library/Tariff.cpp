@@ -1,8 +1,7 @@
 #include "Service.h"
 
 /**
- * @brief Конструктор класса Service.
- *
+ * @brief Конструктор класса Service.h
  * @param name - Название услуги.
  * @param cost_per_unit - Стоимость за единицу услуги.
  */
@@ -85,7 +84,6 @@ const std::string& Tariff::getName() const {
 
 /**
  * @brief Возвращает список услуг тарифа.
- *
  * @return const std::vector<Service>& - Список услуг.
  */
 const std::vector<Service>& Tariff::getServices() const {

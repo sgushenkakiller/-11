@@ -7,37 +7,45 @@
 #include "Service.h"
 
 /**
-*@brief Класс, представляющий тариф с набором услуг.
+*@brief Шаблонный класс, представляющий тариф с набором услуг.
+*@tparam T Тип данных, используемый для хранения услуг.
 */
+template <typename T>
 class Tariff {
 public:
     /**
     *@brief Конструктор класса Tariff.
     *@param name - Название тарифа.
     */
-    Tariff(const std::string& name);
+    Tariff(const std::string& name) : name(name) {}
 
     /**
     *@brief Добавляет услугу в тариф.
     *@param service - Услуга для добавления.
     */
-    void addService(const std::shared_ptr<Service>& service);
+    void addService(const std::shared_ptr<T>& service) {
+        services.push_back(service);
+    }
 
     /**
     *@brief Возвращает название тарифа.
     *@return Название тарифа.
     */
-    const std::string& getName() const;
+    const std::string& getName() const {
+        return name;
+    }
 
     /**
     *@brief Возвращает список услуг тарифа.
     *@return Вектор умных указателей на услуги.
     */
-    const std::vector<std::shared_ptr<Service>>& getServices() const;
+    const std::vector<std::shared_ptr<T>>& getServices() const {
+        return services;
+    }
 
 private:
     std::string name; ///< Название тарифа.
-    std::vector<std::shared_ptr<Service>> services; ///< Список услуг тарифа.
+    std::vector<std::shared_ptr<T>> services; ///< Список услуг тарифа.
 };
 
 #endif // TARIFF_H
@@ -51,33 +59,32 @@ private:
 #include "Tariff.h"
 
 /**
-*@brief Отображает список услуг для заданного тарифа.
+*@brief Шаблонная функция отображает список услуг для заданного тарифа.
+*@tparam T Тип данных, используемый в тарифе.
 *@param tariff - Тариф, услуги которого будут показаны.
 */
-void showServices(const Tariff& tariff);
+template <typename T>
+void showServices(const Tariff<T>& tariff) {
+    std::cout << "Services for tariff: " << tariff.getName() << std::endl;
+    for (const auto& service : tariff.getServices()) {
+        std::cout << service->getName() << " - " << service->getCostPerUnit() << " per unit" << std::endl;
+    }
+}
 
 /**
-*@brief Отображает список всех тарифов и их услуг.
+*@brief Шаблонная функция отображает список всех тарифов и их услуг.
+*@tparam T Тип данных, используемый в тарифе.
 *@param tariffs - Вектор тарифов для отображения.
 */
-void showTariffs(const std::vector<Tariff>& tariffs);
-
-/**
-*@brief Отображает список всех абонентов и их тарифов.
-*@param subscribers - Вектор абонентов для отображения.
-*/
-void showSubscribers(const std::vector<Subscriber>& subscribers);
-
-/**
-*@brief Показывает самые популярные тарифы среди абонентов.
-*@param subscribers - Вектор абонентов для анализа популярности тарифов.
-*/
-void showMostPopularTariffs(const std::vector<Subscriber>& subscribers);
-
-/**
-*@brief Показывает распределение тарифов среди абонентов в процентах.
-*@param subscribers - Вектор абонентов для расчёта распределения тарифов.
-*/
-void showTariffDistribution(const std::vector<Subscriber>& subscribers);
+template <typename T>
+void showTariffs(const std::vector<Tariff<T>>& tariffs) {
+    std::cout << "Tariffs and their services:" << std::endl;
+    for (const auto& tariff : tariffs) {
+        std::cout << "Tariff: " << tariff.getName() << std::endl;
+        for (const auto& service : tariff.getServices()) {
+            std::cout << "  - " << service->getName() << " (" << service->getCostPerUnit() << " per unit)" << std::endl;
+        }
+    }
+}
 
 #endif // UTILS_H
